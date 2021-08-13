@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<p id="inicio">INICIO</p>
+        <aside>
+            Cras tempor varius sapien et tincidunt. Aliquam pulvinar sit amet ante ac gravida. Mauris dapibus convallis purus at vulputate. Nunc eget tellus sagittis, luctus velit vitae, tempor nibh. Suspendisse convallis tristique tristique. Phasellus vehicula interdum augue, sit amet dapibus nulla condimentum non. In placerat tellus vehicula, pulvinar eros pretium, vestibulum nibh. Duis at sagittis purus, et dictum sapien. Pellentesque ut leo dictum, finibus odi Cras tempor varius sapien et tincidunt. Aliquam pulvinar sit amet ante ac gravida. Mauris dapibus convallis purus at vulputate. Nunc eget tellus sagittis, luctus velit vitae, tempor nibh. Suspendisse convallis tristique tristique. Phasellus vehicula interdum augue, sit amet dapibus nulla condimentum non. In placerat tellus vehicula, pulvinar eros pretium, vestibulum nibh. Duis at sagittis purus, et dictum sapien. Pellentesque ut leo dictum, finibus odi Cras tempor varius sapien et tincidunt. Aliquam pulvinar sit amet ante ac gravida. Mauris dapibus convallis purus at vulputate. Nunc eget tellus sagittis, luctus velit vitae, tempor nibh. Suspendisse convallis tristique tristique. Phasellus vehicula interdum augue, sit amet dapibus nulla condimentum non. In placerat tellus vehicula, pulvinar eros pretium, vestibulum nibh. Duis at sagittis purus, et dictum sapien. Pellentesque ut leo dictum, finibus odi Cras tempor varius sapien et tincidunt. Aliquam pulvinar sit amet ante ac gravida. Mauris dapibus convallis purus at vulputate. Nunc eget tellus sagittis, luctus velit vitae, tempor nibh. Suspendisse convallis tristique tristique. Phasellus vehicula interdum augue, sit amet dapibus nulla condimentum non. In placerat tellus vehicula, pulvinar eros pretium, vestibulum nibh. Duis at sagittis purus, et dictum sapien. Pellentesque ut leo dictum, finibus odi
+        </aside>
+        <div id="logeo">
+            <form id = "formulario" method = "post" action="iniciarSesion">
+            <div class = "alertas"> </div>
+            <div id="contenido">
+            <p id="idusuario">USUARIO</p>
+                <div class = "fila">
+                    <div class = "etiqueta">
+                        <label for = "email"> Email </label>
+                    </div>
+                    <div class = "campo">
+                        <input type = "texto" id = "email" name = "email" placeholder = "Escriba su email"/>
+                    </div>
+                </div>
+
+                <div class = "fila">
+                    <div class = "etiqueta">
+                        <label for = "password"> Contraseña </label>
+                    </div>
+                    <div class = "campo">
+                         <input class = "" type = "password" id = "password" name = "password" placeholder = "Escriba una contraseña válida"/>
+                    </div>
+                </div>
+                <div class = "fila" id="login">
+                    <button id = "btLogin" name = "btLogin"> Login </button>
+                </div>
+                <header id="registrar">¿No tiene cuenta? Registrese aqui</header>
+                <div id="registro">
+                    <ul>
+                        <a class="enlaces" href="Registro">Registrarse</a>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        </div>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('#formulario').submit(function(event) {
+				var hayErrores = false;
+                // Email
+                if($("#email").val().length>20){
+                    hayErrores = true;
+                    $("#email").addClass("errorCampo");
+                    $("label[for=email]").addClass("errorEtiqueta");
+                    $(".alertas").html("Hay demasiados caracteres en email");
+                }
+				// Password
+                if( $('#password').val().length==0 ) {
+					hayErrores = true;
+					$('#password').addClass('errorCampo');
+					$('label[for=password]').addClass('errorEtiqueta');
+                    $('#password1').addClass('errorCampo');
+					$('label[for=password1]').addClass('errorEtiqueta');
+                    $(".alertas").html("Hay campos vacíos");
+				}
+                if( $('#email').val().length==0 ) {
+					hayErrores = true;
+					$('#email').addClass('errorCampo');
+					$('label[for=email]').addClass('errorEtiqueta');
+                    $(".alertas").html("Hay campos vacíos");
+				}
+
+				if( hayErrores ) {
+					event.preventDefault();
+				}
+
+			});
+		});
+
+	</script>
+{% endblock %}

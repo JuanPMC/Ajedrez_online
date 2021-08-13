@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+       <title>Welcome</title>
+       <base href="./landing.html" target="_self">
+       <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+       <link href="default.css" media="all" rel="stylesheet"/>
+       <meta charset="UTF-8">
+       <meta name="description" content="Practica">
+        <style>
+            #inn{
+                display:inline-block;
+                width:60%;
+                float: left;
+            }
+            
+            #emb{
+                width: auto;
+                display:inline-block;
+                float: right;
+                overflow: hidden;
+                
+                    
+            }
+            table #partidas {
+                border-collapse: collapse;
+                width: 100%;
+                background: #fff;
+                margin: 120px auto;
+            }
+ 
+            th {
+                background-color: lightgray;
+                font-weight: bold;
+                color: black;
+                white-space: nowrap;
+            }
+
+            td, th {
+                padding: 1em 1.5em;
+                text-align: left;
+            }
+
+            tbody th {
+                background-color: #2ea879;
+            }
+            tbody tr:nth-child(2n-1) {
+                background-color: #f5f5f5;
+                transition: all .125s ease-in-out;
+            }
+            tbody tr:hover {
+                background-color: rgba(50,98,149,.3);
+            }
+            base{
+                height: 1000px;
+            }
+        </style>
+   </head>
+   <body>
+       
+       <div class="base">
+    <div class="base-head">
+       <ul class="navbar">
+            <li class="active"><a href="welcome.html">Home</a></li>
+            <li><a href="perfil">Perfil</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="clanChat">Chat</a></li>
+            <li><a href="partida.html">partida</a></li>
+        </ul>
+       </div>
+        <div  id="inn"><h1>
+            Lorem Ipsum
+        </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi auctor at ipsum nec gravida. Nullam maximus malesuada orci a facilisis. Ut sodales euismod metus sed suscipit. In a ipsum vel risus egestas convallis. Donec lacinia blandit diam id tempus. Morbi imperdiet mi sem, sit amet sodales purus vestibulum a. Vivamus nec faucibus risus, non dapibus elit. Sed tincidunt accumsan sagittis. Vivamus ullamcorper varius dui ut blandit.</p>
+        <p>Curabitur at enim euismod, laoreet dui eget, fermentum neque. Quisque efficitur felis sed nisl vulputate, sit amet gravida velit ultrices. Duis velit urna, elementum sed nisi eu, mattis gravida nisl. Fusce id ornare est. Proin rutrum bibendum nisl, quis condimentum elit varius vel. Donec eget dui nec dui suscipit fringilla. Quisque sollicitudin mauris nec cursus scelerisque. Ut dictum mauris at euismod maximus. Sed tincidunt tincidunt mauris nec tempor. Curabitur sit amet erat in neque vulputate efficitur at suscipit nunc. Donec ac venenatis tortor.</p>
+        <p>Etiam accumsan turpis in ipsum vehicula, eu fringilla augue auctor. Sed eu nulla eget tortor mattis ultricies at porta arcu. Sed non ligula commodo, ornare leo ac, interdum lacus. Curabitur sagittis felis porttitor ipsum auctor, vitae laoreet magna imperdiet. Praesent et lorem eget risus pharetra viverra vulputate non lectus. Sed eu sem a purus lobortis volutpat at vitae nisi. Vestibulum quis interdum sapien. Maecenas rutrum ligula sit amet sagittis suscipit. Vivamus at efficitur lorem, ac sagittis tellus. Ut eu molestie justo. Nam dignissim ornare libero eget hendrerit. Duis sit amet accumsan ante. Cras non maximus sapien, laoreet dapibus lacus. Donec pharetra tellus at dignissim vulputate. Maecenas porta urna eget fringilla malesuada.</p>
+        
+            </div>
+           <div class="embed"; id="emb">
+               <table id="partidas">
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>jugador</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10:20</td>
+                    <td>SenorX</td>
+                </tr>
+                <tr>
+                    <td>12:30</td>
+                    <td>ChessBoss</td>
+                </tr>
+                <tr>
+                    <td>16:40</td>
+                    <td>PeonEnorme</td>
+                </tr>
+                <tr>
+                    <td>19:00</td>
+                    <td>CaballoCojo</td>
+                </tr>
+            </tbody>
+               </table>
+           </div>
+           </div>
+       
+   </body>
+</html>

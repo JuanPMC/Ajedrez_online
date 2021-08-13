@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+       <title>CH3S0NL1N3</title>
+       <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+       <link href="default.css" media="all" rel="stylesheet"/>
+       <meta charset="UTF-8">
+       <meta name="description" content="Curso HTML">
+       <meta name="keywords" content="HTML,CSS">
+       <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+       <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+       <style>
+           #chapu {
+                display: none;
+            }
+           
+           #key {
+               position: absolute;
+               display: flex;
+               top: 40%;
+               margin-right: -50%;
+               transform:  rotate(90deg);
+               align-items: center;
+               width: 100%;
+               user-select: none;
+               
+           }
+           #chapu:checked + label div.slider {
+               border-bottom-color: black;
+               border-bottom-style: solid;
+               border-bottom-width: thick;
+               background-color: rgba(258, 258, 258, 0.85);
+               height: 11%;
+               
+           }
+           #chapu:checked + label img#key {
+                width: 10%;
+               transform:  none;
+               margin-left: 60%;
+           }
+           #chapu:checked + label h1#lgn {
+               margin-left: 70%;
+           }
+           #key{
+               transition-duration: 0.5s;
+               transition-timing-function: ease-in-out;
+           }
+           #lgn{
+               transition-duration: 0.7s;
+               transition-timing-function: ease-in;
+               user-select: none;
+           }
+           #form{
+               text-align:right;
+               padding-top: 25%;
+               padding-right: 12%;
+           }
+           .row{
+               margin-top: 10px;
+               padding-top: 5px;
+           }
+           .row label { display: inline-block; width: 150px; }
+           .row input {
+               border-radius: 5px;
+           
+           }
+            #errors { 
+                
+                display: block; 
+                color: red;
+                text-align: left;
+                background-color: rgba(258, 258, 258, 0.85);
+                
+           }
+           #errors li{
+               list-style: none;
+           }
+           .errorField { 
+                border: solid 1px red; 
+                background-color: rgba(258, 210, 210, 0.85);
+		}
+           
+       </style>
+
+   </head>
+   <body>
+           <div class="base-head">
+       <ul class="navbar">
+            <li class="active"><a href="welcome.html">Home</a></li>
+            <li><a href="perfil">Perfil</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="clanChat">Chat</a></li>
+            <li><a href="partida.html">partida</a></li>
+        </ul>
+       </div>
+       <section class="base"; style="float: left; width: 70%">
+
+        {% block body %}{% endblock %}
+
+	</section>
+    </body>
+</html>

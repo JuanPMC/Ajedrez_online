@@ -1,0 +1,34 @@
+{% extends "base-con-sesion.html.twig" %}
+
+{% block body %}
+	<div id="contenido">
+        <p id="inicio">UNIRSE A UN CLAN</p>
+        <div id="bienvenido"><span style ='color: white; text-align:center; font-size:25px'>Bienvenido {{ NombreUsuario }}</span>
+        <p id="informacion"> Cras tempor varius sapien et tincidunt. Aliquam pulvinar sit amet ante ac gravida. Mauris dapibus convallis purus at vulputate. Nunc eget tellus sagittis, luctus velit vitae, tempor nibh. Suspendisse convallis tristique tristique. Phasellus vehicula interdum augue, sit amet dapibus nulla condimentum non. In placerat tellus vehicula, pulvinar eros pretium, vestibulum nibh. Duis at sagittis purus, et dictum sapien. Pellentesque ut leo dictum, finibus odi<br>
+        Si desea salir pulse "Atrás".
+        </p>
+		<p>Clanes existentes</p>
+        <table class="centro">
+            <thead>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Alias</th>
+                <th>Victorias</th>
+                <th>Ranking</th>
+                <th>Unirse</th>
+            </thead>
+            <tbody>
+                {% for clan in clanes %}
+                    <tr>
+                        <td>{{ clan.getIdclan() }}</td>
+                        <td>{{ clan.getNombre() }}</td>
+                        <td>{{ clan.getSiglas() }}</td>
+                        <td>
+                            <a href="unidorClanes?id={{ clan.getIdClan() }}">Unirse</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

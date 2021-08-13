@@ -1,0 +1,33 @@
+{% extends "base-con-sesion.html.twig" %}
+
+{% block body %}
+
+<div id="bienvenida"><span style ='color: white; text-align:center; font-size:25px'>Bienvenido {{ NombreUsuario }}</span>
+
+        <aside>
+        <br>
+        <div id="bienvenida"><span style ='color: white; text-align:center; font-size:25px'>Bienvenido {{ NombreUsuario }}</span>
+            <br>
+             Cras tempor varius sapien et tincidunt. Aliquam pulvinar sit amet ante ac gravida. Mauris dapibus convallis purus at vulputate. Nunc eget tellus sagittis, luctus velit vitae, tempor nibh. Suspendisse convallis tristique tristique. Phasellus vehicula interdum augue, sit amet dapibus nulla condimentum non. In placerat tellus vehicula, pulvinar eros pretium, vestibulum nibh. Duis at sagittis purus, et dictum sapien. Pellentesque ut leo dictum, finibus odi Cras tempor varius sapien et tincidunt. Aliquam pulvinar sit amet ante ac gravida. Mauris dapibus convallis purus at vulputate. Nunc eget tellus sagittis, luctus velit vitae, tempor nibh. Suspendisse convallis tristique tristique. Phasellus vehicula interdum augue, sit amet dapibus nulla condimentum non. In placerat tellus vehicula, pulvinar eros pretium, vestibulum nibh. Duis at sagittis purus, et dictum sapien. Pellentesque ut leo dictum, finibus odi
+        </aside>
+	<br>
+	<form method="post" action="editarPerfil">
+	Nombre: <input type="text" name="nombre">
+	<button type="submit" > Update </button>
+	</form>
+        <div id="contenido">
+            <div id="jugar">
+                <ul>
+                    <a class="enlaces" href="Ajedrez.php">Jugar</a>
+                </ul>
+            </div>
+        </div>
+{% if clanId %}
+	<div id="nombreClan"><span style ='color: white; text-align:center; font-size:25px'>Perteneces al clan: {{ clanName }}</span>
+<a class="enlaces" href='salirClan'><button id="btSi" name = "btSi"> Salir del Clan </button></a>
+	<a class="enlaces" href='clanChat'><button name = "btSi"> Chat del clan </button></a>
+{% else %}
+	<a href="ClanCrear"><button>Crear un Clan</button></a>
+        <a href="ClanUnir"><button>Unirse a un Clan</button></a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+       <link href="default.css" media="all" rel="stylesheet"/>
+       <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+       <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+        <style>
+            #inn{
+                height: 15%;
+                width: 30%;  
+            }
+            table {
+                height: 99%;
+                width: 99%;
+                margin: 80px; 
+                border: outset black 6px; 
+                background: white; 
+                cursor: crosshair; 
+                }
+                td {
+                line-height: 0; 
+                width: 60px; height: 60px; 
+                background:white; 
+                text-align: center; 
+                vertical-align: middle; 
+                }
+                tr:nth-child(odd) td:nth-child(odd), 
+                tr:nth-child(even) td:nth-child(even) {
+                background: black; 
+                }
+
+                .blancas, .negras {
+                display: inline-block; 
+                font: 800 50px/1 serif; 
+                background: white; 
+                color: black; 
+                border: 2px outset black; 
+                border-radius: 100%; 
+                overflow: hidden; 
+                cursor: -ms-grab; 
+                cursor: -moz-grab; 
+                cursor: -webkit-grab; 
+                cursor: grab; 
+                }
+
+                .negras {
+                background: black; 
+                color: white; 
+                }
+
+                .mano {
+                cursor: -ms-grabbing; 
+                cursor: -moz-grabbing; 
+                cursor: -webkit-grabbing; 
+                cursor: grabbing; 
+                }
+           
+        </style>
+        <script>
+            
+            var escaques, padre, hijo, moviendo; 
+            var trebejos0 = ["♖","♘","♗","♕","♔","♗","♘","♖"];
+            var trebejos1 = "♙"; 
+
+            function tablero() {
+            escaques = document.getElementById("tablero"); 
+            for(e=0; e<8; e++) {
+            var fila = escaques.insertRow(); 
+            for(c=0; c<8; c++){
+            var celda = fila.insertCell(); 
+            if(e==0) celda.innerHTML = "<span class=negras>"+trebejos0[c]+"</span>"; 
+            else if(e==1) celda.innerHTML = "<span class=negras>"+trebejos1+"</span>"; 
+            else if(e==6) celda.innerHTML = "<span class=blancas>"+trebejos1+"</span>"; 
+            else if(e==7) celda.innerHTML = "<span class=blancas>"+trebejos0[c]+"</span>"; 
+            }
+            }
+
+            var movible = document.querySelectorAll("td"); 
+            for(m=0; m<movible.length; m++) {
+            movible[m].setAttribute("onclick", "juega(this)", false);
+            }
+
+            }
+
+            function juega(T) {
+
+            var elementos = document.querySelectorAll("table, table span"); 
+
+            if(!moviendo && T.firstElementChild){
+            padre = T; 
+            hijo = T.innerHTML; 
+
+            for(i=0; elementos[i]; i++) elementos[i].classList.add("mano"); 
+
+            T.querySelector("span").style.opacity = ".4"; 
+
+            moviendo = true; 
+            }
+
+            else if(moviendo){
+            padre.innerHTML = ""; 
+            T.innerHTML = hijo; 
+
+            for(i=0; elementos[i]; i++) elementos[i].classList.remove("mano"); 
+
+            moviendo = false; 
+            }
+
+
+            }
+
+            onload = tablero; 
+
+        </script>
+	</head>    
+	<body>
+        <body><div class="base">
+    <div class="base-head">
+       <ul class="navbar">
+            <li class="active"><a href="welcome.html">Home</a></li>
+            <li><a href="perfil">Perfil</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="clanChat">Chat</a></li>
+            <li><a href="partida.html">partida</a></li>
+        </ul>
+       </div>
+        <div id="inn">
+        <div >
+            <table id="tablero"></table>
+        </div>
+            </div>
+            </div>
+            
+	</body>
+</html>

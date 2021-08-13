@@ -1,0 +1,88 @@
+{% extends "base-con-sesion.html.twig" %}
+
+{% block body %}
+
+<p id="inicio">CREAR CLAN</p>
+        <aside>
+            <header id="id1">Nombre</header>
+            Escriba el nombre del clan, no puede dejarlo en blanco.<br>
+            <header>Alias</header>
+            Escriba el alias del clan, no puede dejarlo en blanco.<br>
+            <header>Usuario</header>
+            Escriba su usuario, no puede dejarlo en blanco.<br>
+            <header>Contraseña</header>
+            Escriba una contraseña válida, no puede dejarlo en blanco.<br>
+            Debe conterner almenos un número, una mayúscula y una minúscula.<br>
+        </aside>
+        <div id = "contenedor">
+            <form id = "formulario" method="post" action="creadorClanes">
+            <div class = "alertas"> </div>
+            <div id="contenido" >
+                <div class = "fila">
+                    <div class = "etiqueta">
+                        <label for = "nombre"> Nombre </label>
+                    </div>
+                    <div class = "campo">
+                        <input type = "texto" id = "nombre" name = "nombre" placeholder = "Escriba el nombre del Clan"/>
+                    </div>
+                </div>
+
+                <div class = "fila">
+                    <div class = "etiqueta">
+                        <label for = "alias"> Alias </label>
+                    </div>
+                    <div class = "campo">
+                        <input type = "texto" id = "alias" name = "alias" placeholder = "Escriba el alias del Clan"/>
+                    </div>
+                </div>	
+
+                <div class = "fila">
+                    <button id = "btEnviar" name = "btEnviar"> Registrar Clan </button>
+                    <button id = "btClear" name = "btClear" input type="reset"> Borrar </button>
+                </div>
+            </div>
+            </form>
+        </div>
+
+<script>
+
+		$(document).ready(function(){
+
+			$('#formulario').submit(function(event) {
+				var hayErrores = false;
+				// Nombre
+				if( $('#nombre').val().length==0 ) {
+					hayErrores = true;
+					$('#nombre').addClass('errorCampo');
+					$('label[for=nombre]').addClass('errorEtiqueta');
+                    $(".alertas").html("Hay campos vacíos");
+				}
+                if($("#nombre").val().length > 50){
+                    hayErrores = true;
+                    $("#nombre").addClass("errorCampo");
+                    $("label[for=nombre]").addClass("errorCampo");
+                    $(".alertas").html("Hay demasiados caracteres en Nombre");
+                }
+				// Apellido
+				if( $('#alias').val().length==0 ) {
+					hayErrores = true;
+					$('#alias').addClass('errorCampo');
+					$('label[for=alias]').addClass('errorEtiqueta');
+                    $(".alertas").html("Hay campos vacíos");
+				}
+                if($("#alias").val().length>10){
+                    hayErrores = true;
+                    $("#alias").addClass("errorCampo");
+                    $("label[for=alias]").addClass("errorEtiqueta");
+                    $(".alertas").html("Hay demasiados caracteres en Alias");
+                }
+
+				if( hayErrores ) {
+					event.preventDefault();
+				}
+			});
+		});
+
+	</script>
+
+{% endblock %}
